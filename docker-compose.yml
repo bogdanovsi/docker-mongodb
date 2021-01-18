@@ -1,0 +1,18 @@
+version: "2"
+services:
+    app:
+        container_name: counter
+        restart: always
+        build: .
+        ports: 
+            - "3000:3000"
+        depends_on:
+            - mongodb
+    mongodb:
+        container_name: mongodb
+        image: mongo:latest
+        hostname: mongodb
+        ports:
+            - "27017:27017"
+        # volumes:
+        #     - /usr/local/var/mongodb:/data
